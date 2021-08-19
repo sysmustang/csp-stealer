@@ -1,0 +1,11 @@
+version: "3"
+services:
+  csp_stealer:
+    build: .
+    volumes:
+      - "./:/app"
+    env_file: config.env
+    ports:
+      - "80:80"
+      - "443:433"
+    container_name: csp_stealer

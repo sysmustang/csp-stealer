@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+  <link rel="stylesheet" href="/static/test/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+  <title>CSPstealer</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/static/favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/static/favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/static/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/static/favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/static/favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/static/favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/static/favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/static/favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/static/favicons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/static/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+          <a class="navbar-brand" href="#">
+            <img src="/static/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            CSPstealer
+          </a>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" class="main mt-4 mb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card bg-light mb-3 w-100">
+            <div class="card-body options_box">
+              <h5 class="card-title">Stealers</h5>
+              <form id="grub-form">
+                <div class="form-group">
+                  <div class="checkbox_container">
+                    <label class="checkbox_box" for="input-url">
+                      <input aria-checked="false" checked="checked" id="input-url" role="checkbox" type="checkbox" class="input_checkbox" value="current_url">
+                      <i aria-hidden="true" class="checkbox_icon mdi mdi-checkbox-blank-outline"></i>
+                      <i aria-hidden="true" class="checkbox_icon checkbox_icon_check mdi mdi-checkbox-marked"></i>
+                      <div class="checkbox_ripple"></div>
+                    </label>
+                    <label for="input-url" class="checkbox_label" >Page URL</label>
+                  </div>
+                  <div class="checkbox_container">
+                    <label class="checkbox_box" for="input-dom">
+                      <input aria-checked="false" checked="checked" id="input-dom" role="checkbox" type="checkbox" class="input_checkbox" value="dom">
+                      <i aria-hidden="true" class="checkbox_icon mdi mdi-checkbox-blank-outline"></i>
+                      <i aria-hidden="true" class="checkbox_icon checkbox_icon_check mdi mdi-checkbox-marked"></i>
+                      <div class="checkbox_ripple"></div>
+                    </label>
+                    <label for="input-dom" class="checkbox_label">DOM</label>
+                  </div>
+                  <div class="checkbox_container">
+                    <label class="checkbox_box" for="input-cookie">
+                      <input aria-checked="false" checked="checked" id="input-cookie" role="checkbox" type="checkbox" class="input_checkbox" value="cookie">
+                      <i aria-hidden="true" class="checkbox_icon mdi mdi-checkbox-blank-outline"></i>
+                      <i aria-hidden="true" class="checkbox_icon checkbox_icon_check mdi mdi-checkbox-marked"></i>
+                      <div class="checkbox_ripple"></div>
+                    </label>
+                    <label for="input-cookie" class="checkbox_label">Cookie</label>
+                  </div>
+                  <div class="checkbox_container">
+                    <label class="checkbox_box" for="input-localstorage">
+                      <input aria-checked="false" checked="checked" id="input-localstorage" role="checkbox" type="checkbox" class="input_checkbox" value="localstorage">
+                      <i aria-hidden="true" class="checkbox_icon mdi mdi-checkbox-blank-outline"></i>
+                      <i aria-hidden="true" class="checkbox_icon checkbox_icon_check mdi mdi-checkbox-marked"></i>
+                      <div class="checkbox_ripple"></div>
+                    </label>
+                    <label for="input-localstorage" class="checkbox_label">Localstorage</label>
+                  </div>
+                  <div class="checkbox_container">
+                    <label class="checkbox_box" for="input-referer">
+                      <input aria-checked="false" id="input-referer" role="checkbox" type="checkbox" class="input_checkbox" value="referer">
+                      <i aria-hidden="true" class="checkbox_icon mdi mdi-checkbox-blank-outline"></i>
+                      <i aria-hidden="true" class="checkbox_icon checkbox_icon_check mdi mdi-checkbox-marked"></i>
+                      <div class="checkbox_ripple"></div>
+                    </label>
+                    <label for="input-referer" class="checkbox_label">Referer</label>
+                  </div>
+                  <div class="checkbox_container">
+                    <label class="checkbox_box" for="input-screenshot">
+                      <input aria-checked="false" id="input-screenshot" role="checkbox" type="checkbox" class="input_checkbox" value="screenshot">
+                      <i aria-hidden="true" class="checkbox_icon mdi mdi-checkbox-blank-outline"></i>
+                      <i aria-hidden="true" class="checkbox_icon checkbox_icon_check mdi mdi-checkbox-marked"></i>
+                      <div class="checkbox_ripple"></div>
+                    </label>
+                    <label for="input-screenshot" class="checkbox_label">Screenshot</label>
+                  </div>
+                </div>
+                <button type="submit" class="options_btn btn btn-primary btn-type-0">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="unsafeinline-tab" data-toggle="tab" href="#unsafeinline" role="tab" aria-controls="unsafeinline" aria-selected="true">
+                Unsafe Inline
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="jsuri-tab" data-toggle="tab" href="#jsuri" role="tab" aria-controls="jsuri" aria-selected="false">
+                JS URI
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="datauri-tab" data-toggle="tab" href="#datauri" role="tab" aria-controls="datauri" aria-selected="false">
+                DATA URI
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="angular-tab" data-toggle="tab" href="#angular" role="tab" aria-controls="angular" aria-selected="false">
+                ANGULAR
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="raw-tab" data-toggle="tab" href="#raw" role="tab" aria-controls="raw" aria-selected="false">
+                RAW
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="unsafeinline" role="tabpanel" aria-labelledby="unsafeinline-tab">
+              <div class="card1 bg-light mb-3 w-100">
+                <div class="card-body clearfix">
+                  <div class="form-group">
+                    <textarea class="code-textarea" id="code-unsafeinline">{{ PAYLOAD_UNSAFEINLINE }}</textarea>
+                  </div>
+                  <button class="code-btn btn btn-primary float-right btn-type-0" data-clipboard-action="copy" data-clipboard-target="#unsafeinline">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="jsuri" role="tabpanel" aria-labelledby="jsuri-tab">
+              <div class="card1 bg-light mb-3 w-100">
+                <div class="card-body clearfix">
+                  <div class="form-group">
+                    <textarea class="code-textarea" id="code-jsuri">{{ PAYLOAD_JSURI }}</textarea>
+                  </div>
+                  <button class="code-btn btn btn-primary float-right btn-type-0" data-clipboard-action="copy" data-clipboard-target="#code-jsuri">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="datauri" role="tabpanel" aria-labelledby="datauri-tab">
+              <div class="card1 bg-light mb-3 w-100">
+                <div class="card-body clearfix">
+                  <div class="form-group">
+                    <textarea class="code-textarea" id="code-datauri">{{ PAYLOAD_DATAURI }}</textarea>
+                  </div>
+                  <button class="code-btn btn btn-primary float-right btn-type-0" data-clipboard-action="copy" data-clipboard-target="#code-datauri">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="angular" role="tabpanel" aria-labelledby="angular-tab">
+              <div class="card1DATAURI bg-light mb-3 w-100">
+                <div class="card-body clearfix">
+                  <div class="form-group">
+                    <textarea class="code-textarea" id="code-angular">{{ PAYLOAD_ANGULAR }}</textarea>
+                  </div>
+                  <button class="code-btn btn btn-primary float-right btn-type-0" data-clipboard-action="copy" data-clipboard-target="#code-angular">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="raw" role="tabpanel" aria-labelledby="raw-tab">
+              <div class="card1DATAURI bg-light mb-3 w-100">
+                <div class="card-body clearfix">
+                  <div class="form-group">
+                    <textarea class="code-textarea" id="code-raw">{{ PAYLOAD_RAW }}</textarea>
+                  </div>
+                  <button class="code-btn btn btn-primary float-right btn-type-0" data-clipboard-action="copy" data-clipboard-target="#code-raw">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card bg-light mt-3 mb-3 w-100">
+            <div class="card-body">
+              <div class="clearfix mb-2">
+                <h3 class="float-left">Payload Fires</h3>
+                <button type="submit" id="btnDeleteAll" class="btn btn-outline-secondary btn-type-0 btn-sm float-right">Delete All</button>
+              </div>
+
+              <table class="table table-striped big_table">
+                <thead>
+                <tr>
+                  <th scope="col">Thumbnail</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Victim IP</th>
+                  <th scope="col">Vulnerable Page URI</th>
+                  <th scope="col">Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for event in events.items %}
+                  <tr>
+                    <td>
+                      {% if event.img_path %}
+                         <a href="{{ event.img_path }}" target="_blank">
+                           <img src="{{ event.img_path }}" class="t_thumbnail" alt="">
+                         </a>
+                      {% else %}
+                          <img src="/static/img/logo.png" class="t_thumbnail" alt="">
+                      {% endif %}
+                    </td>
+                    <td class="fixed_row">
+                      <pre>{{ event.date.strftime('%Y-%m-%d\n%H:%M:%S') }}</pre>
+                    </td>
+                    <td class="fixed_row">
+                      <a target="_blank" class="t_link" href="http://www.ip-tracker.org/locator/ip-lookup.php?ip={{ event.ip }}">{{ event.ip }}</a>
+                    </td>
+                    <td>
+                      <a target="_blank" class="t_link" href="{{ event.url }}">{{ event.url }}</a>
+                    </td>
+                    <td class="fixed_row">
+                      <a data-toggle="collapse" href="#information{{ event.id }}" role="button" aria-expanded="false" aria-controls="information{{ event.id }}" class="btn btn-outline-info btn-sm btn_information collapsed" role="button" aria-pressed="true">
+                        <i aria-hidden="true" class="mdi mdi-information"></i>
+                      </a>
+                      <a href="{{ url_for('view_info', event_id=event.id) }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true">
+                        <i aria-hidden="true" class="mdi mdi-file-document"></i>
+                      </a>
+                      <a class="btn btn-outline-danger btn-sm" id="btnDeleteEvent{{ event.id }}" role="button" aria-pressed="true">
+                        <i aria-hidden="true" class="mdi mdi-trash-can"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="tr_collapse">
+                    <td colspan="4" class="p-0">
+                      <div class="collapse" id="information{{ event.id }}">
+                        <table class="table info_table table-borderless table-stripedless">
+                          <tbody>
+                          {% if event.referer %}
+                            <tr>
+                              <th scope="row">
+                                Referer
+                              </th>
+                              <td>
+                                <span class="text-danger">
+                                  {{ event.referer }}
+                                </span>
+                              </td>
+                            </tr>
+                          {% endif %}
+                          {% if event.useragent %}
+                            <tr>
+                              <th scope="row">
+                                User Agent
+                              </th>
+                              <td>
+                                <span class="text-danger">
+                                  {{ event.useragent }}
+                                </span>
+                              </td>
+                            </tr>
+                          {% endif %}
+                          {% if event.cookie %}
+                            <tr>
+                              <th scope="row">
+                                Cookies
+                              </th>
+                              <td>
+                                <span class="text-danger">
+                                  {{ event.cookie }}
+                                </span>
+                              </td>
+                            </tr>
+                            </tbody>
+                          {% endif %}
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                {%- for page in events.iter_pages() %}
+                  {% if page %}
+                    {% if page != events.page %}
+                      <li class="page-item">
+                        <a class="page-link" href="{{ url_for('index', page_num=page) }}">{{ page }}</a>
+                      </li>
+                    {% else %}
+                      <li class="page-item active">
+                        <a class="page-link" href="{{ url_for('index', page_num=page) }}">{{ page }}</a>
+                      </li>
+                    {% endif %}
+                  {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="#">...</a>
+                    </li>
+                  {% endif %}
+              {%- endfor %}
+            </ul>
+          </nav>
+        </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer bg-dark">
+    <div class="container">
+      <span class="text-muted">CSPstealer</span>
+    </div>
+  </footer>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="/static/libs/clipboard/clipboard.min.js"></script>
+<script src="/static/js/scripts.js"></script>
+</body>
+</html>

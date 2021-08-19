@@ -1,0 +1,7 @@
+flask
+flask_basicauth
+sqlalchemy
+Flask-SQLAlchemy
+beautifulsoup4
+gunicorn
+flask_login

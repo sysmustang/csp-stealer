@@ -1,0 +1,5 @@
+idea/
+**/__pycache__
+xss.db
+config.env
+*.pyc

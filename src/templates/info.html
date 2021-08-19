@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+  <link rel="stylesheet" href="/static/test/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+  <title>CSPstealer</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/static/favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/static/favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/static/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/static/favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/static/favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/static/favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/static/favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/static/favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/static/favicons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/static/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+          <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="/static/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            CSPstealer
+          </a>
+
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" class="main mt-4 mb-3">
+    <div class="container">
+      <h1>Full report</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card bg-light mt-3 mb-3 w-100">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th scope="col">Thumbnail</th>
+                  <th scope="col">Date</th>
+                  <th scope="col" class="fixed_row">Victim IP</th>
+                  <th scope="col">Vulnerable Page URI</th>
+                  <th scope="col">Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {% if event.img_path %}
+                          <a href="{{ event.img_path }}" target="_blank">
+                            <img src="{{ event.img_path }}" class="t_thumbnail" alt="">
+                          </a>
+                      {% else %}
+                          <img src="/static/img/logo.png" class="t_thumbnail" alt="">
+                      {% endif %}
+                    </td>
+                    <td class="fixed_row">
+                      <pre>{{ event.date.strftime('%Y-%m-%d\n%H:%M:%S') }}</pre>
+                    </td>
+                    <td class="fixed_row">
+                      <a target="_blank" class="t_link" href="http://www.ip-tracker.org/locator/ip-lookup.php?ip={{ event.ip }}">{{ event.ip }}</a>
+                    </td>
+                    <td>
+                      <a target="_blank" class="t_link" href="{{ event.url }}">{{ event.url }}</a>
+                    </td>
+                    <td class="fixed_row">
+                      <a class="btn btn-outline-danger btn-sm" id="btnDeleteEvent{{ event.id }}" role="button" aria-pressed="true">
+                        <i aria-hidden="true" class="mdi mdi-trash-can"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if event.useragent %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card bg-light mt-3 mb-3 w-100">
+              <div class="card-header">
+                Victim User Agent
+              </div>
+              <div class="card-body">
+                <span class="text-danger">
+                  {{ event.useragent }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if event.referer %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card bg-light mt-3 mb-3 w-100">
+              <div class="card-header">
+                Referer
+              </div>
+              <div class="card-body">
+                <span class="text-danger">
+                  {{ event.referer }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {%  if event.cookie %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card bg-light mt-3 mb-3 w-100">
+              <div class="card-header">
+                Cookies
+              </div>
+              <div class="card-body">
+                <span class="text-danger">
+                  {{ event.cookie }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {%  if event.localstorage %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card bg-light mt-3 mb-3 w-100">
+              <div class="card-header">
+                Localstorage
+              </div>
+              <div class="card-body">
+                <span class="text-danger">
+                  {{ event.localstorage }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if event.csp_policy %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card bg-light mt-3 mb-3 w-100">
+              <div class="card-header">
+                CSP
+              </div>
+              <div class="card-body">
+                <span class="text-danger">
+                  {{ event.csp_policy }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if event.dom %}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card bg-light mt-3 mb-3 w-100">
+                <div class="card-header">
+                  DOM
+                </div>
+                <div class="card-body">
+                  <!--==========================================-->
+                  <pre class="prettyprint linenums lang-html pre_block" id="domContent" data-lang="html">{{ event.dom }}</pre>
+                  <!--==========================================-->
+                  <a href="#" id="btnDownloadDOM" class="code-btn mt-3 btn btn-primary float-right btn-type-0">
+                    Download DOM
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+      {% endif %}
+    </div>
+  </main>
+  <footer class="footer bg-dark">
+    <div class="container">
+      <span class="text-muted">CSPstealer</span>
+    </div>
+  </footer>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="/static/libs/clipboard/clipboard.min.js"></script>
+<script src="/static/js/scripts.js"></script>
+</body>
+</html>
