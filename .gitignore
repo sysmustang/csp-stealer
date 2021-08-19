@@ -3,3 +3,4 @@ idea/
 xss.db
 config.env
 *.pyc
+src/static/upload
