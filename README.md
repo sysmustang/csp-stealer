@@ -1,8 +1,14 @@
 CSPstealer
 =========
 
-This is tool to retrieve web-page secrets and bypass Content Security Policy.  
-In general, the functionality is similar to xsshunter.
+This is tool used to retrieve web-page secrets and bypass Content Security Policy.  
+In general, the functionality is similar to xsshunter.  
+
+It's helpful when you have an XSS, but there is no way to steal secrets because of CSP.  
+Especially it may increase your chanses to find Blind Stored XSS.  
+
+The concept was introduced at VolgaCTF 2021. To have more information you can read see original [report](csp_bypass.pdf).
+
 
 Installation & Usage
 ------------
