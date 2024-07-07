@@ -4,6 +4,7 @@ from src.model import Event
 from time import sleep
 from base64 import b64decode
 import uuid
+import os
 
 
 @webapp.route('/')
@@ -24,6 +25,9 @@ def callback():
         _, encoded = data_uri.split(',', 1)
         screenshot = b64decode(encoded)
         screenfile = f'src/static/upload/{uuid.uuid4()}.png'
+
+        if not os.path.exists('src/static/upload'):
+            os.mkdir('src/static/upload')
 
         with open(screenfile, 'wb') as f:
             f.write(screenshot)

@@ -1,28 +1,55 @@
 CSPstealer
 =========
 
-This is tool used to retrieve web-page secrets and bypass Content Security Policy.  
-In general, the functionality is similar to xsshunter.  
+CSPstealer is a tool designed to retrieve web-page secrets and bypass Content Security Policy (CSP) restrictions. The tool significantly increases your chances of finding Blind Stored XSS. Also if you've identified an XSS vulnerability but are hindered by CSP, CSPstealer can help you overcome these limitations.
 
-It's helpful when you have an XSS, but there is no way to steal secrets because of CSP.  
-Especially it may increase your chanses to find Blind Stored XSS.  
+The concept was first presented at VolgaCTF 2021. For a deeper understanding of how CSPstealer operates, you can refer to the original [presentation slides](csp_bypass.pdf).
 
-The concept was introduced at VolgaCTF 2021. To have more information you can read see original [report](csp_bypass.pdf).
+## Primary Use Cases
+* Finding Blind Stored XSS: CSPstealer is particularly useful in scenarios where Blind XSS might be present. The majority of sites have weak CSP that includes 'unsafe-inline' in the script-src directive, so this tool gives you significantly more chances to find Blind XSS compared to any other tool for this purpose.
+* Bypassing CSP with XSS: When you have an XSS vulnerability that allows you to execute JavaScript, but CSP restrictions prevent you from sending any data out. CSPstealer helps in bypassing these restrictions to extract the secrets you need.
 
 
-Installation & Usage
+
+Installation
 ------------
-To simple run you need docker and docker-compose:
+#### Docker installation
+You can set up CSPstealer using Docker for easy deployment:
 ```
-./run.sh
+docker-compose up -d
 ```
-To run app without docker you need python 3.6+ and installed requirements:
+Modify the default credentials to access the admin panel:
 ```
-pip install -r requirements.txt
-./run.sh --no-docker
+docker exec -it csp_stealer python credentials.py
 ```
 
-If you need https you can put `cert.crt` and `private.key` to ./ssl directory.  
-SSL isn't required and CSP bypass will work even on pages with https.
+By default, the application runs on port 80. If you need to change the port, modify the docker-compose.yaml file.      
 
-Application works on 0.0.0.0:[80 | 443] ports. For example, to login you have to go to http://localhost/admin. 
+
+
+        
+#### Using Python (without Docker)
+Alternatively, you can set up CSPstealer without Docker for manual deployment. Python 3.6 or higher is required to run CSPstealer.
+```
+pip3 install -r requirements.txt
+python3 credentials.py # change default credentials
+./gunicorn.sh # run app
+```
+
+
+#### SSL configuration (optional)
+If you need HTTPS, you can place `cert.crt` and `private.key` files in the `./ssl` directory.  
+Please note that SSL is not required for successful exploitation; however, data will be transmitted over an unencrypted channel. 
+
+Usage
+------------
+
+The application is accessible on http[s]://0.0.0.0/admin page.
+
+Default Credentials: admin / cspstealer   
+
+Note: It is strongly recommended to change the default credentials.
+
+# License
+CSPstealer is licensed under the MIT License.
+

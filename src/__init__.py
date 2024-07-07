@@ -2,14 +2,15 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import flask_login
 import hashlib
+import secrets
 import os
 
 
 webapp = Flask(__name__)
 
 username = os.getenv('LOGIN', 'admin')
-passwd_hash = os.getenv('PASSWD_HASH')
-webapp.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+passwd_hash = os.getenv('PASSWD_HASH', '11c52fa6a40fce9d1e0221a829c93fa9') # default pass is cspstealer
+webapp.config['SECRET_KEY'] = os.getenv('SECRET_KEY', secrets.token_hex(16))
 
 login_manager = flask_login.LoginManager(webapp)
 login_manager.login_view = 'login'

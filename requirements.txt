@@ -1,7 +1,7 @@
-flask
-flask_basicauth
-sqlalchemy
-Flask-SQLAlchemy
-beautifulsoup4
-gunicorn
-flask_login
+Flask==3.0.3
+Flask-BasicAuth==0.2.0
+SQLAlchemy==2.0.31
+Flask-SQLAlchemy==3.1.1
+beautifulsoup4==4.12.3
+gunicorn==22.0.0
+Flask-Login==0.6.3
